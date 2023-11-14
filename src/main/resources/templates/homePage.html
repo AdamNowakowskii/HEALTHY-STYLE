@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="/styles/homePage.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Kameron:wght@600&family=Poiret+One&family=Roboto+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>HEALTHY + STYLE</h1>
+        </div>
+        <nav>
+            <ul class="nav_links">
+                <li><a th:href="@{/products}" >SHOP</a></li>
+                <li><a th:href="@{/blog}" >BLOG</a></li>
+                <li><a th:href="@{/shoppingBasket}">CART</a></li>
+                <a href="#" th:href="@{/login}" sec:authorize="!isAuthenticated()">Zaloguj się</a>
+                <a href="#" th:href="@{/logout}" sec:authorize="isAuthenticated()">Wyloguj się</a>
+            </ul>
+            <div class="more_option" >
+                <button id="more_option_button"><i class="fa-solid fa-bars" ></i></button>
+            </div>
+        </nav>
+    </header>
+    <div class="spacer"></div>
+    <main>
+
+        <div class="img_info_left">
+            <div class="foto">
+                    <img src="/img/mainFoto.png" alt="">
+            </div>
+            <div class="sponsored">
+                <div class="main_description"> 
+                    <div class="description">
+                        Our company is fully committed to protecting our planet through sustainable practices that minimize our environmental impact
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="link_img_right">
+            <h2>Simple like that</h2>
+
+            <div class="right_parahraf">
+                <img src="/img/fresh-avocado-1678346735-6794961.jpg" alt="">
+                <div class="description_heper">
+                    <p class="first">BEST QUALITY PRODUCTS</p>
+                    <p class="second">Our team is dedicated to ensuring that the products we offer meet stringent quality standards, and our customers can enjoy not only the finest products but also exceptional customer service</p>
+                </div>
+            </div>
+
+            <div class="right_parahraf">
+                <img src="/img/delivery.avif" alt="">
+                <div class="description_heper">
+                    <p class="first">FAST DELIVERY</p>
+                    <p class="second"> We understand the importance of timely deliveries, and our commitment is to provide a rapid and reliable service.</p>
+                </div>
+            </div>
+
+            <div class="right_parahraf">
+                <img src="/img/plate.png" alt="">
+                <div class="description_heper">
+                    <p class="first">Diversity</p>
+                    <p class="second">Our range is not just about quality but also diversity. You will find products that will meet your expectations and needs.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

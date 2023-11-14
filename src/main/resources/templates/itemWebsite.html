@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/styles/itemWebsite.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+</head>
+<body>
+    <nav>
+        <div class="categories">
+            <ul>
+                <li><a th:href="@{/products}" >SHOP</a></li>
+                <li><a th:href="@{/blog}" >BLOG</a></li>
+                <li><a th:href="@{/shoppingBasket}">CART</a></li>
+                <li><a th:href="@{/}" >HOMEPAGE</a></li>
+                <a href="#" th:href="@{/login}" sec:authorize="!isAuthenticated()">Log in</a>
+                <a href="#" th:href="@{/logout}" sec:authorize="isAuthenticated()">log out</a>
+             </ul>
+        </div>
+    </nav>
+ <div class="breadCrums">
+        <a href="" th:href="@{/}" >HomePage</a>
+        <a href="" th:text="${'/' +byId.category}" ></a>
+        <p th:text="${'/' + byId.title}"></p>
+    </div>
+    <main>
+        <div class="leftInfo">
+            <div class="smallPhoto">
+                <img src="" alt="" th:src="${ '/img/'+byId.firstPhoto}" class="miniFoto">
+                <img src="" alt="" th:src="${ '/img/'+byId.secondPhoto}" class="miniFoto">
+                <img src="" alt="" th:src="${ '/img/'+byId.thirdPhoto}" class="miniFoto">
+            </div>
+            <div class="mainFoto">
+                <img src="" th:src="${ '/img/'+byId.firstPhoto}"  alt="" id="headPhoto" >
+            </div>
+        </div>
+        <div class="rightInfo">
+            <h1 class="productName" th:text="${byId.title}" ></h1>
+                <div class="productInfo">
+                    <div class="priceInfo">
+                            <p>CALL PRICE: 39.90</p>
+                            <div class="priceHelper">
+                                <p th:text="${byId.price}">35.90</p>
+                                <p>/sztBrutto</p>
+                            </div>
+                            <p>Unit Price 194.05 PLN / kg".</p>
+                            <button>add to cart</button>
+
+                    </div>
+
+                    <div class="deliverInfo">
+                        <div class="deliveryHelper">
+                            <p id="greenDot">●</p>
+                            <p>The product is available in very large quantities, shipping within 48 hours</p>
+                        </div>
+                        <div class="deliveryHelper">
+                            <i class="fa-solid fa-truck"></i>
+                            <p class="iconInfo">Inexpensive and fast delivery.</p>
+                        </div>
+                      <div class="deliveryHelper">
+                        <i class="fa-solid fa-arrow-left"></i>
+                        <p class="iconInfo">14 days for an easy return</p>
+                      </div>
+                    </div>
+                </div>
+        </div>
+    </main>
+   <div class="product_description_container">
+    <div class="product_description">
+        <h2 th:text="${byId.title}"></h2>
+        <p th:text="${byId.description}" ></p>
+        <h2 th:text="${byId.firstParagraphTitle}" ></h2>
+        <p th:text="${byId.firstParagraphDescription}" ></p>
+        <h2 th:text="${byId.secondParagraphTitle}" ></h2>
+        <p th:text="${byId.secondParagraphDescription}" ></p>
+    </div>
+   </div>
+   <script src="/scripts/script.js"></script>
+</body>
+</html>

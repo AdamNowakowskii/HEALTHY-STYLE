@@ -1,0 +1,152 @@
+body{
+    color: black;
+    width: 100%;
+    height: 95vh;
+    font-family: 'Arial','Helvetica',sans-serif,"Arial",sans-serif;
+}
+.categories > ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    display: flex;
+    justify-content: space-around;
+}
+li {
+    margin-top: .7%;
+}
+.categories a {
+    text-decoration: none;
+    color: whitesmoke;
+}
+nav{
+    display: flex;
+    justify-content: center;
+}
+.categories {
+    width: 80%;
+    height: 5vh;
+    background-color: #d6536f;
+    overflow: hidden;
+}
+.breadCrums {
+    display: flex;
+    justify-content: center;
+    color: black;
+    width: 50%;
+    margin-top: 1%;
+
+}
+.breadCrums * {
+    all: unset;
+}
+main {
+    display: flex;
+}
+.leftInfo {
+    width: 30%;
+    height: 40vh;
+    display: flex;
+}
+.rightInfo {
+    width: 40%;
+    height: 40vh;
+}
+main{
+    margin-top: 3%;
+    display: flex;
+    justify-content: center;
+}
+.smallPhoto{
+    width: 20%;
+    height: 100%;
+}
+.mainFoto {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.miniFoto {
+    margin-top: 20%;
+    height: 20%;
+    width: 100%;
+    border: 2px solid #ffffff;
+}
+.mainFoto img {
+    height: 80%;
+    width: 80%;
+}
+.productName {
+    display: flex;
+    justify-content: center;
+}
+.productInfo {
+    margin-top: 7%;
+    width: 100%;
+    height: 60%;
+    display: flex;
+    justify-content: space-around;
+}
+.priceInfo , .deliverInfo {
+    width: 35%;
+    height: 80%;
+}
+.priceHelper {
+    display: flex;
+}
+.deliveryHelper {
+    display: flex;
+}
+.numberInput {
+    width: 10%;
+}
+.priceInfo button {
+    border: none;
+    background-color: #d6536f;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+    height: 30%;
+    width: 50%;
+    border-radius: 4px;
+    font-family: 2%;
+}
+.product_description_container {
+    display: flex;
+    justify-content: center ;
+    align-items: center;
+}
+.product_description {
+    width: 80%;
+    height: 100%;
+}
+
+.miniFoto:hover{
+    border: 2px solid #d6536f;
+}
+.priceHelper p:first-child {
+    font-size: 2rem;
+    font-weight: 700;
+}
+.priceHelper {
+    width: 20px;
+    height: 20px;
+    align-items: center;
+}
+
+.acctive {
+    border-color: #ff0000;
+}
+#greenDot {
+    color: rgb(16, 255, 16);
+    font-size: 1.4rem;
+    margin-right: 10px;
+}
+.deliveryHelper i {
+    font-size: 2rem;
+}
+.iconInfo {
+    margin-top: 2%;
+}

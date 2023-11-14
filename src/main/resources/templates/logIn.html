@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>LOG IN</title>
+  <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.2.0/css/all.css'>
+<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.2.0/css/fontawesome.css'>
+<link rel="stylesheet" href="/styles/logIn.css">
+
+</head>
+<body>
+<div class="container">
+	<div class="screen">
+		<div class="screen__content">
+            <a href="" th:href="@{/}"><h1>HEALTHY + STYLE</h1></a>
+			<form class="login"  th:action="@{/login}" method="post">
+				<p th:if="${param.error}"
+                       th:text="${session['SPRING_SECURITY_LAST_EXCEPTION'].message}"
+                       >
+                    </p>
+                <p th:if="${param.logout}" class="mc-form-message">
+                    You have been logged out. You can log in again.
+                </p>
+				<div class="login__field">
+					<i class="login__icon fas fa-user"></i>
+					<input type="text" name="username" class="login__input" placeholder="Email">
+				</div>
+				<div class="login__field">
+					<i class="login__icon fas fa-lock"></i>
+					<input type="password"  name="password"  class="login__input" placeholder="Password">
+				</div>
+				<button class="button login__submit">
+					<span class="button__text">Log In Now</span>
+					<i class="button__icon fas fa-chevron-right"></i>
+				</button>
+                <a th:href="@{/register}">
+                        YOU HAVE ACCOUNT ? click here
+                </a>
+            </form>
+			<div class="social-login">
+				<h3>log in via</h3>
+				<div class="social-icons">
+					<a href="#" class="social-login__icon fab fa-instagram"></a>
+					<a href="#" class="social-login__icon fab fa-facebook"></a>
+					<a href="#" class="social-login__icon fab fa-twitter"></a>
+				</div>
+			</div>
+		</div>
+		<div class="screen__background">
+			<span class="screen__background__shape screen__background__shape4"></span>
+			<span class="screen__background__shape screen__background__shape3"></span>		
+			<span class="screen__background__shape screen__background__shape2"></span>
+			<span class="screen__background__shape screen__background__shape1"></span>
+		</div>		
+	</div>
+</div>
+</body>
+</html>

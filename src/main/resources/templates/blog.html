@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BLOG</title>
+    <link rel="stylesheet"  th:href="@{/styles/blog.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+</head>
+<body>
+<nav>
+    <div class="navBar">
+        <ul>
+            <li><a th:href="@{/products}" >SHOP</a></li>
+            <li><a th:href="@{/blog}" >BLOG</a></li>
+            <li><a th:href="@{/shoppingBasket}">CART</a></li>
+            <li><a th:href="@{/}" >HOMEPAGE</a></li>
+            <a href="#" th:href="@{/login}"  sec:authorize="!isAuthenticated()">Log In</a>
+            <a href="#" th:href="@{/logout}" sec:authorize="isAuthenticated()">Log Out</a>
+        </ul>
+    </div>
+</nav>
+<div class="mainContainer">
+    <div class="main">
+        <div class="addPost">
+            <a href="" th:href="@{/admin/newPost}">
+                <i class="fa fa-plus"></i>
+            </a>
+        </div>
+        <form action="/abc" th:each="posts: ${post}">
+            <div class="formContainer">
+                <h1  th:text="${posts.title}" ></h1>
+                <p th:text="${posts.dateAdded}"></p>
+                <a href="" th:text="${posts.urlLink}"></a>
+                <p th:text="${posts.description} "></p>
+                <section class="vote">
+                        <a href="" class="voteUp" th:href="@{/logged/voteUp/{id}(id = ${posts.getId()})}">
+                            <i class="fas fa-arrow-alt-circle-up discovery-upvote"></i>
+                        </a>
+                    <p class="voteCount" th:text="${posts.countVotes}">32</p>
+                    <a href="#" class="voteDown" th:href="@{/logged/voteDown/{id}(id = ${posts.getId()})}">
+                        <i class="fas fa-arrow-alt-circle-down discovery-downvote"></i>
+                    </a>
+                </section>
+            </div>
+        </form>
+    </div>
+</div>
+<footer>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore consequatur porro pariatur sapiente excepturi. Fugiat eligendi assumenda quos quam natus soluta tenetur, quasi quibusdam et nobis quo cupiditate porro at.
+</footer>
+</body>
+</html>

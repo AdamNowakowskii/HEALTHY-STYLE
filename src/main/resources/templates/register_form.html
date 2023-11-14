@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - A Pen by Mohithpoojary</title>
+  <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.2.0/css/all.css'>
+<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.2.0/css/fontawesome.css'>
+<link rel="stylesheet" href="/styles/register.css">
+
+</head>
+<body>
+<div class="container">
+	<div class="screen">
+		<div class="screen__content">
+            <a href="" th:href="@{/}"><h1>HEALTHY + STYLE</h1></a>
+			<form class="login" th:action="@{/register}" th:object="${userRegistration}" method="post">
+				<p th:if="${param.error}" th:text="${session['SPRING_SECURITY_LAST_EXCEPTION']}"></p>
+                <span th:if="${param.emailFail}" >email is already register for </span>
+                <span th:if="${param.passwordFail}" >password don't have 8 characters</span>
+                <span th:if="${param.fail}" th:text="${#fields.allErrors()}"></span>
+				<div class="login__field">
+					<i class="login__icon fas fa-user" ></i>
+					<input type="text" class="login__input"   th:field="*{email}"  placeholder="User name / Email">
+                    <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="error"></span>
+				</div>
+				<div class="login__field">
+					<i class="login__icon fas fa-lock"></i>
+					<input type="password" class="login__input" th:field="*{password}" placeholder="Password" >
+                    <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="error"></span>
+				</div>
+				<button class="button login__submit">
+					<span class="button__text">Register NOW</span>
+					<i class="button__icon fas fa-chevron-right"></i>
+				</button>
+                <a th:href="@{/login}">
+                    YOU HAVE ACCOUNT ? click here
+            </form>
+			<div class="social-login">
+				<h3>log in via</h3>
+				<div class="social-icons">
+					<a href="#" class="social-login__icon fab fa-instagram"></a>
+					<a href="#" class="social-login__icon fab fa-facebook"></a>
+					<a href="#" class="social-login__icon fab fa-twitter"></a>
+				</div>
+			</div>
+		</div>
+		<div class="screen__background">
+			<span class="screen__background__shape screen__background__shape4"></span>
+			<span class="screen__background__shape screen__background__shape3"></span>		
+			<span class="screen__background__shape screen__background__shape2"></span>
+			<span class="screen__background__shape screen__background__shape1"></span>
+		</div>		
+	</div>
+</div>
+</body>
+</html>

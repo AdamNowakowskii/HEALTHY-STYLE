@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>shoppingBasket</title>
+    <link rel="stylesheet" href="/styles/shoppingBasket.css">
+</head>
+<body>
+    <nav>
+    <div class="categories">
+        <ul>
+            <li><a th:href="@{/products}" >SHOP</a></li>
+            <li><a th:href="@{/blog}" >BLOG</a></li>
+            <li><a th:href="@{/}" >HOMEPAGE</a></li>
+            <a href="#" th:href="@{/login}" sec:authorize="!isAuthenticated()">Zaloguj się</a>
+            <a href="#" th:href="@{/logout}" sec:authorize="isAuthenticated()">Wyloguj się</a>
+         </ul>
+    </div>
+</nav>
+    <div class="container" >
+        <table>
+            <tr>
+                <th>Product</th>
+                <th>Price</th>
+                <th>quantity</th>
+                <th>Total</th>
+            </tr>
+            <tr th:each=" set:${session.basketSet} ">
+                <td >
+                    <img src="" th:src="${'/img/' + set.firstPhoto}" alt="" class="product-image">
+                    <span class="product-title" th:text="${set.title}" >Przykładowy produkt 1</span>
+                </td>
+                <td class="product-price" th:text="${set.price}" >$10.00</td>
+                <td>
+                    <div class="quantity-controls">
+                        <button class="quantity-button" onclick="changeQuantity(this, -1)">-</button>
+                        <input class="product-quantity" type="number" value="1" min="1">
+                        <button class="quantity-button" onclick="changeQuantity(this, 1)">+</button>
+                    </div>
+                </td>
+                <td class="product-total"></td>
+            </tr>
+            <tr>
+            <tr class="total-amount">
+                <td></td>
+                <td></td>
+                <td><strong>Total Price: </strong></td>
+                <td><strong class="cart-total"></strong></td>
+            </tr>
+        </table>
+        <div class="shipping-info">
+            <h2>Delivery information</h2>
+          <form method="post" th:action="@{/buyItem}" th:object="${email}">
+              <div class="form-container">
+                  <label class="form-label" for="name">First Name</label>
+                  <input class="form-input" type="text" th:field="*{firstName}" id="name" name="name" required >
+                  <label class="form-label" for="address"   >address:</label>
+                  <input class="form-input" type="text" th:field="*{address}" id="address" name="address" required>
+                  <label class="form-label" for="zipcode">ZipCode:</label>
+                  <input class="form-input" type="text" th:field="*{zipCode}" id="zipcode" name="zipcode" required>
+                  <label class="form-label" for="city">City:</label>
+                  <input class="form-input" type="text" th:field="*{city}" id="city" name="city" required>
+                  <label class="form-label" for="email">Email:</label>
+                  <input class="form-input" type="email" th:field="*{email}" id="email" name="email" required>
+              </div>
+              <th:block th:if="${session.basketSet!=null}"> <button class="checkout-button" type="submit">OrderNow</button> </th:block>
+              <th:block th:if="${session.basketSet==null}"> <button disabled class="checkout-button" type="submit">OrderNow</button> <p>Yours cart is empty add item to order</p></th:block>
+          </form>
+        </div>
+    </div>
+    <script src="/scripts/shoppingBasket.js"></script>
+</body>
+</html>

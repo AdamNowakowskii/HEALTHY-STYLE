@@ -1,0 +1,7 @@
+#spring.mail.host=smtp.gmail.com
+#spring.mail.port=465
+#spring.mail.username=<businessflowapplication@gmail.com>
+#spring.mail.password=<MonopolNaZadania123>
+##spring.mail.password=<kmiy prdy mddl rvgk>
+#spring.mail.properties.mail.smtp.auth=true
+#spring.mail.properties.mail.smtp.starttls.enable=true

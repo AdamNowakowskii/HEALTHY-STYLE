@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop</title>
+    <link rel="stylesheet" href="/styles/shop.css">
+</head>
+<div class='light x1'></div>
+<div class='light x2'></div>
+<div class='light x3'></div>
+<div class='light x4'></div>
+<div class='light x5'></div>
+<div class='light x6'></div>
+<div class='light x7'></div>
+<div class='light x8'></div>
+<div class='light x9'></div>
+<body>
+<div class="navBarContaner">
+    <div class="navBar">
+        <ul>
+            <li><a th:href="@{/products}" >SHOP</a></li>
+            <li><a th:href="@{/blog}" >BLOG</a></li>
+            <li><a th:href="@{/shoppingBasket}">CART</a></li>
+            <li><a th:href="@{/}" >HOMEPAGE</a></li>
+            <a href="#" th:href="@{/login}" sec:authorize="!isAuthenticated()">Zaloguj się</a>
+            <a href="#" th:href="@{/logout}" sec:authorize="isAuthenticated()">Wyloguj się</a>
+        </ul>
+    </div>
+</div>
+<div class="contianer">
+    <div class="mainContent">
+        <nav>
+            <ul>
+                <a href="" th:each="categorys:${category}" th:href="@{/products(categoryName=${categorys.name().toString()})}">
+                    <li  th:text="${categorys.name()}"></li></a>
+                <a href="" th:href="@{/products}">
+                    <li >ALL PRODUCT</li>
+                </a>
+            </ul>
+        </nav>
+        <form action="">
+            <div class="product" th:each="products :${product}">
+                <p th:text="${products.title}"></p>
+                <img src="" th:src="${'/img/' + products.firstPhoto}" alt="">
+                <p class="shortDescription" th:text="${products.shortDescription}"></p>
+                <a th:href="@{/basket/{id}(id=${products.id})}" class="productWebInfo" >ADD TO CART</a>
+                <a th:href="@{/item/{id}(id=${products.id})}" class="productWebInfo" >MORE</a>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

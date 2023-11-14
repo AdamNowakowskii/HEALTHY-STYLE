@@ -1,0 +1,105 @@
+body {
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+    background-color: #35e247ea;
+}
+.mainContainer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.main {
+    background-color: rgb(255, 255, 255);
+    width: 85%;
+    height: 90%;
+    scroll-behavior: smooth;
+    overflow:scroll;
+}
+.navBar {
+    margin-top: 10px;
+    width: 85%;
+    background-color: whitesmoke;
+    height: 5vh;
+}
+.navBar >ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 0.5%;
+}
+.navBar a {
+    color: rgb(43, 150, 84);
+    font-family: 'Roboto Mono', monospace;
+}
+.navBarCointaner {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.navBar a {
+    text-decoration: none;
+    font-family: 'Roboto Mono', monospace;
+}
+nav {
+    display: flex;
+    justify-content: center;
+}
+.formContainer {
+    width: 90%;
+    margin-top: 30px;
+    min-height: 30vh;
+    height: auto;
+    border: solid black 2px;
+    padding: 1%;
+}
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.vote {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 1.2rem;
+}
+
+.voteCount {
+    display: inline;
+    color: #007AFF;
+}
+.vote > p {
+    margin: 0 4px;
+}
+
+.voteUp:hover {
+    color: #4CD964;
+}
+
+.voteDown:hover {
+    color: #FF3B30;
+}
+footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.addPost {
+    position: absolute;
+    bottom: 0.5%;
+    right: 11.6%;
+    width: 50px;
+    height: 50px;
+    background-color: green;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

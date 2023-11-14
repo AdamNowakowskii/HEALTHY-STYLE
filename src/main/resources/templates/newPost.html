@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/styles/newPost.css">
+</head>
+<body>
+    <div class="mainInformation">
+       <form action="" th:action="@{/admin/newPost}" method="post" th:object="${addPostDTO}">
+        <h1>ADD NEW POST </h1>
+        <label for="title">Title</label>
+        <input type="text" name="title" id="title" placeholder="" th:field="*{title}">
+        <label for="Link">Link</label>
+        <input type="text" name="Link" id="Link" placeholder="" th:field="*{urlLink}" >
+        <label for="description">Description</label>
+        <textarea name="description" id="description" cols="40" rows="10" th:field="*{description}" ></textarea>
+        <button type="submit">ADD</button>
+       </form>
+    </div>
+</body>
+</html>
